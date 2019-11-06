@@ -4,38 +4,7 @@ import java.util.LinkedList;
 public class Analysis {
     LinkedList<Character> list1=new LinkedList<>();//把字符串转成字符数组存入
     LinkedList<Character> list2=new LinkedList<>();//存放类型name
-    BufferedReader input=null;
     public Analysis(){
-    }
-    public void start(){
-        char a[];
-        try {
-            input = new BufferedReader(new FileReader("/Users/apple/IdeaProjects/lexical/in.text"));
-            String line;
-            while((line=input.readLine())!=null){
-                line.replace("\\s+","");//一个或多个空白符
-                a=line.toCharArray();//转换成字符数组
-                for (char c:a
-                     ) {
-                    list1.offer(c);//将元素插入到队列
-                }
-                nanlyze();
-
-        }
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally{//关闭资源
-            if(input!=null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
     }
 public char readin(){
         char c=list1.pollFirst();
@@ -46,7 +15,7 @@ public void readout(){
         char c1=list2.pollLast();
         list1.offerFirst(c1);//取出list2的最后一个字符放入list1开头
 }
-    private void nanlyze() {
+    public void ananlyze() {
         int state = 0;
         Token token = new Token();
         while (!list1.isEmpty()) {
@@ -116,6 +85,8 @@ public void readout(){
                     } else {
                         if (c2 != ' ') {
                             System.out.println("不能识别");
+                            LGUI.t2.append("不能识别");
+                            LGUI.t2.append("\r\n");
                             list2.clear();
                             continue;
                         }
@@ -140,6 +111,8 @@ public void readout(){
                         token.setType("标识符");
                     }
                         System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                         list2.clear();
                         state = 0;
                         break;
@@ -161,6 +134,8 @@ public void readout(){
                     else {
                         if (c2 != ' ') {
                             System.out.println("不能识别");
+                            LGUI.t2.append("不能识别");
+                            LGUI.t2.append("\r\n");
                             list2.clear();
                             continue;
                         }
@@ -182,6 +157,8 @@ public void readout(){
                     else {
                         if (c2 != ' ') {
                             System.out.println("不能识别");
+                            LGUI.t2.append("不能识别");
+                            LGUI.t2.append("\r\n");
                             list2.clear();
                             continue;
                         }
@@ -192,6 +169,8 @@ public void readout(){
                         state = 8;
                     else {
                         System.out.println("不能识别");
+                        LGUI.t2.append("不能识别");
+                        LGUI.t2.append("\r\n");
                         list2.clear();
                         continue;
                     }
@@ -210,6 +189,8 @@ public void readout(){
                     token.setName(s1.trim());
                     token.setType("数值");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -231,6 +212,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -238,6 +221,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -246,6 +231,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -267,6 +254,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -274,6 +263,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -282,6 +273,8 @@ public void readout(){
                     token.setName(getList2().trim());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -298,6 +291,8 @@ public void readout(){
                     token.setName(getList2());
                     token.setType("运算符");
                     System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -305,8 +300,11 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
-                    list2.clear();
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     state = 0;
+                    list2.clear();
                     break;
                 case 21:
                     if (c2 == '=') {
@@ -320,6 +318,9 @@ public void readout(){
                 case 22:// /=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -327,6 +328,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -342,6 +346,9 @@ public void readout(){
                 case 25:// %=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -349,6 +356,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -367,12 +377,18 @@ public void readout(){
                 case 28:// &&
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 29:// &=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -380,6 +396,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -398,12 +417,18 @@ public void readout(){
                 case 32:// ||
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 33:// |=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -411,6 +436,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -426,6 +454,9 @@ public void readout(){
                 case 36: // !=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -433,6 +464,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -448,6 +482,9 @@ public void readout(){
                 case 39: // ^=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -455,6 +492,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -472,6 +512,9 @@ public void readout(){
                 case 42: // <=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -487,6 +530,9 @@ public void readout(){
                 case 44: // <<=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -494,6 +540,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -501,6 +550,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -518,6 +570,9 @@ public void readout(){
                 case 48: // >=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -544,6 +599,9 @@ public void readout(){
                 case 51: // >>>=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -551,12 +609,18 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 53: // >>=
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -564,6 +628,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -571,6 +638,9 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -588,6 +658,9 @@ public void readout(){
                 case 58: // ==
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
@@ -595,72 +668,108 @@ public void readout(){
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 60: // ?
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 61: // :
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 62: // [
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 63: // ]
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 64: // (
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 65: // )
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 66: // .
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 67: // ,
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 68: // {
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 69: // }
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
                 case 70: // ;
                     token.setName(getList2());
                     token.setType("运算符");
+                    System.out.println(token.toString());
+                    LGUI.t2.append(token.toString());
+                    LGUI.t2.append("\r\n");
                     list2.clear();
                     state = 0;
                     break;
