@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class Id {
     private static final String keyword[]={ "int","short","long","double","float","String","private","final",

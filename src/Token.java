@@ -3,7 +3,8 @@ public class Token {
     private String type;
 
     @Override
-    public String toString() {
+    public String toString() { //打印
+
         return "Token{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +

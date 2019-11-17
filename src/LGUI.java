@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.StringReader;
 
@@ -53,34 +52,28 @@ public class LGUI extends JFrame {
         if (obj == b1) {
             System.exit(0);
         }
-        if(obj==b3){
+        if(obj==b3){ //清除
             t1.setText("");
             t2.setText("");
         }
-        if (obj == b2) {
+        if (obj == b2) { //分析过程在analysis
             analysis=new Analysis();
             char a[];
             try {
                 input = new BufferedReader(new StringReader(t1.getText()));
                 String line;
                 while((line=input.readLine())!=null){
-                    line.replace("\\s+", "");
-                    System.out.println(line);
-                    a = line.toCharArray();
-
+                    line.replace("\\s+", ""); //多个空格合并一个
+                    a = line.toCharArray(); //一行变为一个数组
                     for (char c : a
                     ) {
-
                         analysis.list1.offer(c);//将元素插入到队列
                     }
                     analysis.ananlyze();
-
                 }
             } catch (Exception ee) {
                 ee.printStackTrace();
             }
-
         }
     }
-
 }

@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.LinkedList;
 
 public class Analysis {
@@ -119,7 +118,7 @@ public void readout(){
                 case 3:
                     if (Character.isDigit(c2))
                         state = 3;
-                    else if (c2 == ',')
+                    else if (c2 == '.')
                         state = 4;
                     else if (c2 == 'e' || c2 == 'E')
                         state = 6;
@@ -488,7 +487,7 @@ public void readout(){
                     list2.clear();
                     state = 0;
                     break;
-                case 40: // ^
+                case 40: // ^异或
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
@@ -527,7 +526,7 @@ public void readout(){
                         readout();
                     }
                     break;
-                case 44: // <<=
+                case 44: // <<=复合赋值运算符
                     token.setName(getList2());
                     token.setType("运算符");
                     System.out.println(token.toString());
@@ -605,7 +604,7 @@ public void readout(){
                     list2.clear();
                     state = 0;
                     break;
-                case 52: // >>>
+                case 52: // >>>无符号又移
                     readout();
                     token.setName(getList2());
                     token.setType("运算符");
@@ -676,7 +675,7 @@ public void readout(){
                     break;
                 case 60: // ?
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -685,7 +684,7 @@ public void readout(){
                     break;
                 case 61: // :
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -694,7 +693,7 @@ public void readout(){
                     break;
                 case 62: // [
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -703,7 +702,7 @@ public void readout(){
                     break;
                 case 63: // ]
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -712,7 +711,7 @@ public void readout(){
                     break;
                 case 64: // (
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -721,7 +720,7 @@ public void readout(){
                     break;
                 case 65: // )
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -730,7 +729,7 @@ public void readout(){
                     break;
                 case 66: // .
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -739,7 +738,7 @@ public void readout(){
                     break;
                 case 67: // ,
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -748,7 +747,7 @@ public void readout(){
                     break;
                 case 68: // {
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -757,7 +756,7 @@ public void readout(){
                     break;
                 case 69: // }
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
@@ -766,7 +765,7 @@ public void readout(){
                     break;
                 case 70: // ;
                     token.setName(getList2());
-                    token.setType("运算符");
+                    token.setType("界符");
                     System.out.println(token.toString());
                     LGUI.t2.append(token.toString());
                     LGUI.t2.append("\r\n");
