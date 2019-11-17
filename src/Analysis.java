@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Analysis {
     LinkedList<Character> list1=new LinkedList<>();//把字符串转成字符数组存入
-    LinkedList<Character> list2=new LinkedList<>();//存放类型name
+    LinkedList<Character> list2=new LinkedList<>();//存放类型 name
     public Analysis(){
     }
 public char readin(){

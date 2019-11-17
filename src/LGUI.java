@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.StringReader;
 
-
 public class LGUI extends JFrame {
     JTextArea t1;
     static JTextArea t2;
